@@ -8,7 +8,7 @@ using WebApplication1.Models;
 
 namespace WebApplication1
 {
-    public class ApplicationDBContext :IdentityDbContext
+    public class ApplicationDBContext :IdentityDbContext<User>
     {
         public ApplicationDBContext(DbContextOptions<ApplicationDBContext> options) 
             : base(options)
@@ -16,7 +16,6 @@ namespace WebApplication1
 
         }
         public DbSet<Book> Books { get; set; }
-        public DbSet<User> Users { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
